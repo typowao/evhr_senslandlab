@@ -1,4 +1,4 @@
-﻿Bootstrap: docker
+Bootstrap: docker
 From: ubuntu:22.04
 
 %help
@@ -16,7 +16,15 @@ From: ubuntu:22.04
         python3-pip \
         curl
 
-    mkdir -p /usr/local/evhr/scripts
-    cp -r scripts/* /usr/local/evhr/scripts/
+	
+    mkdir -p /usr/local/evhr
+    cd /usr/local/evhr
+
+    # Clone your GitHub repo
+    git clone https://github.com/typowao/evhr_senslandlab.git temp_repo
+
+    # Copy all folders and files (not just scripts) directly into /usr/local/evhr
+    cp -r temp_repo/* /usr/local/evhr/
+
     chmod -R a+rwx /usr/local/evhr/scripts/run_evhr
 
