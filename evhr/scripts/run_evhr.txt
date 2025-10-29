@@ -1,9 +1,0 @@
-export PYTHONPATH="/usr/lib/python3.10:/usr/local/evhr:/usr/local/evhr/core"
-
-echo Starting evhr run with celery
-
-python evhr/view/evhrToaCLV.py \
-	-o $2 \
-	--scenes_in_file $1
-
-echo Done with evhr run with celery
