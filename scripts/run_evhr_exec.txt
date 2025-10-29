@@ -1,0 +1,8 @@
+#!/bin/bash
+# Start instance with your mounted folders
+apptainer instance start -B /mnt/l/Users/Wasik/NASA_CSDA:/data \
+    ~/projects/EVHR_container/evhr_4.0.0.sif ev_instance
+
+# Run EVHR on your input txt file
+apptainer exec instance://ev_instance /usr/local/evhr/scripts/run_evhr \
+    /data/westID489_1B_Wasik/input_files.txt /data/westID489_1B_Wasik/output
